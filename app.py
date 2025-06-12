@@ -98,6 +98,12 @@ def format_prompt(task, input_text):
     }
     return prompts.get(task, input_text)
 
+
+@app.route('/', methods=['GET'])
+def index():
+    return "hello world"
+
+
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 10000))
     app.run(host='0.0.0.0', port=port)
