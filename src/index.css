@@ -1,0 +1,443 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply antialiased text-gray-900 dark:text-white;
+  }
+
+  /* Custom Scrollbar Styles */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-100 dark:bg-gray-800;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 dark:bg-gray-600 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-400 dark:bg-gray-500;
+  }
+}
+
+@layer utilities {
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .user-select {
+    user-select: none !important;
+  }
+}
+
+/* Animation Keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.1);
+  }
+  80% {
+    opacity: 1;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulseSubtle {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes thinking {
+  0%, 100% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+@keyframes ping-slow {
+  0% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+}
+
+@keyframes bounce-slow {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Markdown Styles */
+.prose {
+  @apply text-sm leading-relaxed;
+}
+
+.prose p {
+  @apply my-2;
+}
+
+.prose h1 {
+  @apply text-2xl font-bold my-4;
+}
+
+.prose h2 {
+  @apply text-xl font-bold my-3;
+}
+
+.prose h3 {
+  @apply text-lg font-bold my-2;
+}
+
+.prose ul {
+  @apply list-disc list-inside my-2 ml-4;
+}
+
+.prose ol {
+  @apply list-decimal list-inside my-2 ml-4;
+}
+
+.prose code:not(pre code) {
+  @apply px-1.5 py-0.5 rounded bg-gray-200 dark:bg-gray-700 text-sm;
+}
+
+.prose pre {
+  @apply my-4 rounded-lg overflow-x-auto;
+}
+
+.prose blockquote {
+  @apply border-l-4 border-gray-300 dark:border-gray-600 pl-4 my-4 italic;
+}
+
+.prose table {
+  @apply w-full my-4 border-collapse;
+}
+
+.prose th,
+.prose td {
+  @apply border border-gray-300 dark:border-gray-600 px-4 py-2;
+}
+
+.prose th {
+  @apply bg-gray-100 dark:bg-gray-800;
+}
+
+.prose a {
+  @apply text-indigo-600 dark:text-indigo-400 hover:underline;
+}
+
+.prose hr {
+  @apply my-4 border-gray-300 dark:border-gray-600;
+}
+
+/* Custom Animation Classes */
+.animate-ping-slow {
+  animation: ping-slow 3s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.animate-bounce-slow {
+  animation: bounce-slow 3s infinite;
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient 8s ease infinite;
+}
+
+/* Message Animation */
+.message-enter {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Copy Button Styles */
+.copy-button {
+  @apply transition-all duration-200;
+}
+
+.copy-success {
+  @apply text-green-400;
+}
+
+
+/*select the model css  */
+.select {
+  width: fit-content;
+  cursor: pointer;
+  /* position: relative; */
+
+  /* ai  */
+   position: relative; /* Make parent relative */
+    display: inline-block;
+  /* ai  */
+  transition: 300ms;
+  /* right: 184px; */
+  /* top: 109px; */
+  color: white;
+  /* overflow: hidden; */
+}
+
+.selected {
+  background-color: #2a2f3b;
+  padding: 5px;
+  margin-bottom: 3px;
+  border-radius: 5px;
+  position: relative;
+  z-index: 10;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ai */
+.selected {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* ai */
+
+.arrow {
+  position: relative;
+  right: 0px;
+  height: 10px;
+  transform: rotate(-90deg);
+  width: 25px;
+  fill: white;
+  z-index: 100000;
+  transition: 300ms;
+}
+
+/* .options {
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  padding: 5px;
+  background-color: #2a2f3b;
+  position: relative;
+  top: -100px;
+  opacity: 0;
+  transition: 300ms;
+} */
+
+
+/* ai */
+.options{
+   position: absolute; /* Absolute but inside relative parent */
+    top: 100%; /* Align dropdown just below */
+    left: 0;
+    width: max-content;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s;
+}
+
+/* ai */
+
+/* .select:hover > .options {
+  opacity: 1;
+  top: 0;
+} */
+
+/* ai */
+.select:hover .options {
+    opacity: 1;
+    visibility: visible;
+}
+/* ai */
+
+
+.select:hover > .selected .arrow {
+  transform: rotate(0deg);
+}
+
+.option {
+  border-radius: 5px;
+  padding: 5px;
+  transition: 300ms;
+  background-color: #2a2f3b;
+  width: 150px;
+  font-size: 15px;
+}
+
+.option:hover {
+  background-color: #323741;
+}
+
+.options input[type="radio"] {
+  display: none;
+}
+
+.options label {
+  display: inline-block;
+}
+
+.options label::before {
+  content: attr(data-txt);
+}
+
+.options input[type="radio"]:checked + label {
+  display: none;
+}
+
+.select:has(.options input[type="radio"]#all:checked) .selected::before {
+  content: attr(data-default);
+}
+
+.select:has(.options input[type="radio"]#option-1:checked) .selected::before {
+  content: attr(data-one);
+}
+
+.select:has(.options input[type="radio"]#option-2:checked) .selected::before {
+  content: attr(data-two);
+}
+
+.select:has(.options input[type="radio"]#option-3:checked) .selected::before {
+  content: attr(data-three);
+}
+.select:has(.options input[type="radio"]#option-4:checked) .selected::before {
+  content: attr(data-four);
+}
+.select:has(.options input[type="radio"]#option-5:checked) .selected::before {
+  content: attr(data-five);
+}
+.select:has(.options input[type="radio"]#option-6:checked) .selected::before {
+  content: attr(data-six);
+}
+
+
+/* ai */
+@media (max-width: 768px) {
+    .select {
+        width: 40%;
+    }
+    .options {
+      z-index:10;
+        left: 50%;
+      line-height:2;
+        transform: translateX(-50%);
+    }
+}
+@media (min-width: 768px) {
+    .select {
+        width: 14%;
+    }
+    .options {
+      z-index:10;
+        left: 50%;
+        transform: translateX(-50%);
+      line-height:2;
+    }
+}
+
+/* ai */

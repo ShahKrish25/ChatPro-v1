@@ -1,0 +1,25 @@
+/* .markdownContent.inlineContent > div > *:first-child:last-child {
+  display: inline-block;
+  margin: 0;
+  width: auto;
+}
+
+.markdownContent.inlineContent > div {
+  display: inline-block;
+  width: auto;
+}
+
+.markdownContent.blockContent {
+  width: 100%;
+}
+ */
+/* Additional helper classes */
+/* .inlineWrapper {
+  display: inline-block;
+  width: auto;
+}
+
+.blockWrapper {
+  display: block;
+  width: 100%;
+} */
